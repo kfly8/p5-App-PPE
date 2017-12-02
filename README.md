@@ -1,23 +1,17 @@
 [![Build Status](https://travis-ci.org/kfly8/App-PPE.svg?branch=master)](https://travis-ci.org/kfly8/App-PPE)
 # NAME
 
-App::PPE - Prettify Perl Error messages
+ppe - Prettify Perl Error messages
 
 # SYNOPSIS
 
-    use App::PPE;
+    % perl ~/foo.pl 2>&1 | ppe
+    foo.pl:5: [WARN] (W) Use of uninitialized value in warn
 
 # DESCRIPTION
 
-App::PPE is is backend module of [ppe](https://metacpan.org/pod/ppe).
+[ppe](https://metacpan.org/pod/ppe) is a prettifier for Perl error messages.
 
-# LICENSE
+# SEE ALSO
 
-Copyright (C) Kenta, Kobayashi.
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-# AUTHOR
-
-Kenta, Kobayashi <kentafly88@gmail.com>
+[perldiag](https://metacpan.org/pod/perldiag)
