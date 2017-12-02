@@ -1,6 +1,7 @@
+[![Build Status](https://travis-ci.org/kfly8/App-PPE.svg?branch=master)](https://travis-ci.org/kfly8/App-PPE)
 # NAME
 
-App::PPE - It's new $module
+App::PPE - Prettify Perl Error messages
 
 # SYNOPSIS
 
@@ -8,7 +9,7 @@ App::PPE - It's new $module
 
 # DESCRIPTION
 
-App::PPE is ...
+App::PPE is is backend module of [ppe](https://metacpan.org/pod/ppe).
 
 # LICENSE
 

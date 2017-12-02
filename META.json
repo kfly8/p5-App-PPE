@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "Prettify Perl Error messages",
    "author" : [
       "Kenta, Kobayashi <kentafly88@gmail.com>"
    ],
@@ -42,6 +42,8 @@
       },
       "runtime" : {
          "requires" : {
+            "Parse::ErrorString::Perl" : "0",
+            "Term::ANSIColor" : "0",
             "perl" : "5.008001"
          }
       },
@@ -52,5 +54,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/kfly8/App-PPE/issues"
+      },
+      "homepage" : "https://github.com/kfly8/App-PPE",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/kfly8/App-PPE.git",
+         "web" : "https://github.com/kfly8/App-PPE"
+      }
+   },
    "version" : "0.01"
 }
