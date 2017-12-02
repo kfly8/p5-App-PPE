@@ -21,6 +21,39 @@ ppe - Prettify Perl Error messages
 
 L<ppe> is a prettifier for Perl error messages.
 
+When you are writing such as following:
+
+  use strict;
+  use warnings;
+
+  my $str;
+  warn $str;
+
+This code outputs following result:
+
+=begin html
+
+<div><img src="https://raw.github.com/kfly8/App-PPE/master/img/example-warnings.png"></div>
+
+=end html
+
+
+When you are writing such as following:
+
+  use strict;
+  use warnings;
+
+  sub f {
+
+This code outputs following result:
+
+=begin html
+
+<div><img src="https://raw.github.com/kfly8/App-PPE/master/img/example-critical.png"></div>
+
+=end html
+
+
 =head1 SEE ALSO
 
 L<perldiag>
