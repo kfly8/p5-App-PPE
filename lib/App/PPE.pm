@@ -8,6 +8,7 @@ our $VERSION = "0.02";
 use Parse::ErrorString::Perl;
 use Term::ANSIColor qw//;
 
+# https://perldoc.perl.org/perldiag.html#DESCRIPTION
 our $TAG_MAP = {
      W => 'WARN',
      D => 'WARN',
@@ -16,6 +17,8 @@ our $TAG_MAP = {
      P => 'CRITICAL',
      X => 'ERROR',
      A => 'ERROR',
+
+     undef => 'UNKNOWN',
 };
 
 our $COLOR = {
@@ -30,6 +33,10 @@ our $COLOR = {
     'error' => {
         text       => 'red',
         background => 'black'
+    },
+    'unknown' => {
+        text       => 'white',
+        background => 'red'
     }
 };
 
@@ -105,12 +112,18 @@ sub prettify_error_item {
     $FORMAT->($tag, $type, $message, $file, $error_item->line);
 }
 
+sub _tag {
+    my $error_item = shift;
+    my $type = $error_item->type // 'undef';
+    return $TAG_MAP->{$type};
+}
+
 sub _prettify_color {
     my ($self, $error_item) = @_;
 
     return {} unless $self->{color};
 
-    my $tag = $TAG_MAP->{$error_item->type};
+    my $tag = _tag($error_item);
     my $color = $COLOR->{lc($tag)};
 
     return $color;
@@ -119,8 +132,7 @@ sub _prettify_color {
 sub _prettify_tag {
     my ($self, $error_item) = @_;
 
-    my $tag  = $TAG_MAP->{$error_item->type};
-
+    my $tag  = _tag($error_item);
     my $color = $self->_prettify_color($error_item);
     $tag = Term::ANSIColor::color($color->{text}) . $tag . Term::ANSIColor::color("reset") if $color->{text};
     $tag = Term::ANSIColor::color("on_".$color->{background}) . $tag . Term::ANSIColor::color("reset") if $color->{background};
@@ -130,7 +142,7 @@ sub _prettify_tag {
 
 sub _prettify_type {
     my ($self, $error_item) = @_;
-    return $error_item->type;
+    return $error_item->type // 'undef';
 }
 
 sub _prettify_message {
