@@ -1,4 +1,4 @@
-requires 'perl', '5.008001';
+requires 'perl', '5.10.0';
 
 requires 'Parse::ErrorString::Perl';
 requires 'Term::ANSIColor';
