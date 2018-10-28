@@ -1,5 +1,5 @@
 package App::PPE;
-use 5.008001;
+use 5.10;
 use strict;
 use warnings;
 
