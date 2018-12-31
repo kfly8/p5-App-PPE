@@ -114,7 +114,7 @@ sub prettify_error_item {
 
 sub _tag {
     my $error_item = shift;
-    my $type = $error_item->type // 'undef';
+    my $type = $error_item->type || 'undef';
     return $TAG_MAP->{$type};
 }
 
@@ -142,7 +142,7 @@ sub _prettify_tag {
 
 sub _prettify_type {
     my ($self, $error_item) = @_;
-    return $error_item->type // 'undef';
+    return $error_item->type || 'undef';
 }
 
 sub _prettify_message {
